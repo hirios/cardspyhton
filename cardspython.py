@@ -7,14 +7,15 @@ def locate_file():
     # caso haja somente um, este será escolhido automaticamente
     path = os.listdir()
     path = [x for x in path if x[-4:] in [".txt", ".csv", ".vcf"]]
-    if len(path) == 1:
-        path = path[0]
 
     contador = 1
-    if len(path) > 1:
+    if len(path) == 1:
+        print("[1]", path[0])
+    else:
         for c in path:
             print([contador], c)
             contador += 1
+
     print()
     n = int(input('Digite o número do arquivo: ')) - 1
     return path[n]
@@ -195,3 +196,6 @@ def vcard_to_csv(users):
     # Transforma vcard em csv
     vcard = get_contacts_vcard(users)
     return create_csv(vcard)
+
+#users = open_file()
+#print(get_contacts_vcard(users))
