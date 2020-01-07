@@ -196,10 +196,6 @@ def vcf_to_csv(users):
     vcf = get_contacts_vcf(users)
     return create_csv(vcf)
 
-
-users = open_file()
-pprint(create_csv(users))
-
 ##users = open_file()
 ##create_vcf(users)
 #
