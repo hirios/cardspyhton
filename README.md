@@ -49,7 +49,7 @@ print(get_contacts_vcf(users))
 # Exemplos de uso:
 **Criando csv de contatos a partir de uma string**
 ```
-string = """Celia Nicanor, 04111958186145
+string = """Celia Nicanor, 04111958186100
 Celio planalto, 04164984798300
 Jarlei Gas, 04177991436700
 Julian barra, 04174991945000
