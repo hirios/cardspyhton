@@ -1,5 +1,9 @@
 # Como usar:
-Você pode abrir o script e usar suas funções da seguinte maneira
+Você pode abrir ou import todas funções do script utilizando: 
+```
+from cardspython import *
+````
+... e usar suas funções da seguinte maneira:
 
 **1 - Retornando um csv padrão google/android a partir de um .txt ou .csv**
 ```
