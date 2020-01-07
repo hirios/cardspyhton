@@ -133,7 +133,6 @@ class Pycsv():
 
     
     def check_csv(self):
-        # Checa se o csv tem padrão google ou "username, number\n"
         if self.users.split("\n")[2].count(",") > 1:
             return self.read_csv_google()
         else:
@@ -199,7 +198,8 @@ def vcf_to_csv(users):
 
 
 users = open_file()
-print(csv_to_vcf(users))
+pprint(create_csv(users))
 
 ##users = open_file()
 ##create_vcf(users)
+#
