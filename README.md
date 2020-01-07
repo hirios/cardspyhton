@@ -8,7 +8,7 @@ from cardspython import *
 **1 - Retornando um csv padrão google/android a partir de uma string, .txt ou .csv**
 ```
 users = open_file()
-print(create_csv(users)):
+print(create_csv(users))
 ```
 Obs: O .txt ou .csv deverá estar separado por vírgulas, exemplo -> 
 ```
@@ -18,7 +18,7 @@ username2, number2"
 **2 - Criando um vcard a partir de um .txt ou outro .csv**
 ```
 users = open_file()
-print(create_vcf(users)):
+print(create_vcf(users))
 ```
 
 **3 - Para retornar um csv no padrão google/android a partir de um Vcard.**
@@ -37,13 +37,13 @@ print(vcf_to_csv(users))
 **5 - Para retornar todos contatos de um csv**
 ```
 users = open_file()
-print(get_contacts_csv(users)):
+print(get_contacts_csv(users))
 ```
 
 **6 - Para retornar todos os contatos de um vcard**
 ```
 users = open_file()
-print(get_contacts_vcf(users)):
+print(get_contacts_vcf(users))
 ```
 
 # Exemplos de uso:
