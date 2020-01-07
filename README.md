@@ -5,7 +5,7 @@ from cardspython import *
 ````
 ... e usar suas funções da seguinte maneira:
 
-**1 - Retornando um csv padrão google/android a partir de um .txt ou .csv**
+**1 - Retornando um csv padrão google/android a partir de uma string, .txt ou .csv**
 ```
 users = open_file()
 print(create_csv(users)):
@@ -46,6 +46,35 @@ users = open_file()
 print(get_contacts_vcf(users)):
 ```
 
+# Exemplos de uso:
+**Criando csv de contatos a partir de uma string**
+```
+string = """Celia Nicanor, 04111958186145
+Celio planalto, 04164984798388
+Jarlei Gas, 04177991436786
+Julian barra, 04174991945022
+Juliane ifba, 04177991746690
+Luiz Mariano, 04177991040360
+Lurdes Erenilda, 04174999738232
+Elenice, 04177981527646
+Simone lotérica, 04166984522752"""
 
+users = string
+print(create_csv(users))
+```
 
+**Criando vcard a partir de um csv na pasta**
+```
+>>> users = open_file()
+ [1] exemplo.csv
+ [2] exmplo.txt
+    
+print(create_vcf(users))
+```
+
+**Retornando vcard a partir de um csv**
+```
+users = open_file("teste.vcf")
+print(csv_to_vcf(users))
+```
 
