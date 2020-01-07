@@ -24,7 +24,7 @@ def open_file(default='locate_file()'):
     # Aceita o nome do arquivo como paramêtro. O default mostra os arquivos
     # e pede pra escolher o número dele a partir da função locate_file()
     if default == 'locate_file()':
-        default = locate_file()
+        default = str(locate_file())
         
     users = open(default, "r").read()
     try:
@@ -79,12 +79,12 @@ END:VCARD
 
     def get_contacts_vcf(self):
         # Obtem o nome e o número de cada contato em self.username e self.number do csv selecionado
-        username = self.username
-        number = self.number
+        username1 = self.username
+        number1 = self.number
 
         contacts_of_vcf = ""
-        for c in range(0, len(username)):
-            contacts_of_vcf += username[c] + "," + number[c] + "\n"
+        for c in range(0, len(username1)):
+            contacts_of_vcf += username1[c] + "," + number1[c] + "\n"
             
         return contacts_of_vcf    
                     
@@ -141,6 +141,8 @@ class Pycsv():
 
     def csv_finale(self):
         # Retorna uma string com o csv final
+
+        print(self.username)
         username = self.username
         number = self.number
         
@@ -164,7 +166,7 @@ def get_contacts_vcf(users):
     # Pega os contatos no vcard e retorna no padrão -> "name-exemplo, 40028922"
     start = Pyvcf(users)
     start.read_vcf()
-    string = start.get_contacts_vcf()
+    string = start.get_contacts_vcff()
     return string
 
 
@@ -195,7 +197,3 @@ def vcf_to_csv(users):
     # Transforma vcard em csv
     vcf = get_contacts_vcf(users)
     return create_csv(vcf)
-
-##users = open_file()
-##create_vcf(users)
-#
