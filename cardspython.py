@@ -141,8 +141,6 @@ class Pycsv():
 
     def csv_finale(self):
         # Retorna uma string com o csv final
-
-        print(self.username)
         username = self.username
         number = self.number
         
@@ -166,7 +164,7 @@ def get_contacts_vcf(users):
     # Pega os contatos no vcard e retorna no padrão -> "name-exemplo, 40028922"
     start = Pyvcf(users)
     start.read_vcf()
-    string = start.get_contacts_vcff()
+    string = start.get_contacts_vcf()
     return string
 
 
