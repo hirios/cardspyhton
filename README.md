@@ -50,14 +50,14 @@ print(get_contacts_vcf(users))
 **Criando csv de contatos a partir de uma string**
 ```
 string = """Celia Nicanor, 04111958186145
-Celio planalto, 04164984798388
-Jarlei Gas, 04177991436786
-Julian barra, 04174991945022
-Juliane ifba, 04177991746690
-Luiz Mariano, 04177991040360
-Lurdes Erenilda, 04174999738232
-Elenice, 04177981527646
-Simone lotérica, 04166984522752"""
+Celio planalto, 04164984798300
+Jarlei Gas, 04177991436700
+Julian barra, 04174991945000
+Juliane ifba, 04177991746600
+Luiz Mariano, 04177991040300
+Lurdes Erenilda, 04174999738200
+Elenice, 04177981527600
+Simone lotérica, 04166984522700"""
 
 users = string
 print(create_csv(users))
