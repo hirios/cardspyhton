@@ -67,6 +67,7 @@ class Pyvcf():
         elif len(username_split) <= 5:
             print('Excesso de termos no sobrenome')
 
+
         return f"""BEGIN:VCARD
 VERSION:3.0
 FN:{username}
@@ -153,7 +154,7 @@ class Pycsv():
 
         
 def create_vcf(users):
-    # Cria um Vcard a partir de um .txt, .csv, .vcf ou string se estiverem como "name-exemplo, 40028922"
+    # Cria um Vcard a partir de um .txt, .csv ou string se estiverem assim -> "name-exemplo, 40028922"
     start = Pyvcf(users)
     start.read_string_contacts()
     string = start.vcf_finale()
@@ -161,6 +162,7 @@ def create_vcf(users):
 
 
 def get_contacts_vcf(users):
+    # Pega os contatos no vcard e retorna no padrão -> "name-exemplo, 40028922"
     start = Pyvcf(users)
     start.read_vcf()
     string = start.get_contacts_vcf()
@@ -168,7 +170,7 @@ def get_contacts_vcf(users):
 
 
 def create_csv(users):
-    # Cria um csv a partir de um .txt, .csv, .vcf ou string se estiverem como "name-exemplo, 40028922",
+    # Cria um csv a partir de um .txt, .csv, .vcf ou string se estiverem no padão -> "name-exemplo, 40028922",
     # ou no padrão da google
     start = Pycsv(users)
     start.check_csv()
@@ -177,7 +179,7 @@ def create_csv(users):
 
 
 def get_contacts_csv(users):
-    # Pega os contatos de um csv da google e retorna no padrão "name-exemplo, 40028922"
+    # Pega os contatos de um csv da google e retorna no padrão -> "name-exemplo, 40028922"
     start = Pycsv(users)
     start.check_csv()
     string = start.get_contacts_csv()
@@ -185,14 +187,19 @@ def get_contacts_csv(users):
 
 
 def csv_to_vcf(users):
+    # Transforma csv em vcard
     csv = get_contacts_csv(users)
     return create_vcf(csv)
 
 
 def vcf_to_csv(users):
+    # Transforma vcard em csv
     vcf = get_contacts_vcf(users)
     return create_csv(vcf)
 
 
 users = open_file()
 print(csv_to_vcf(users))
+
+##users = open_file()
+##create_vcf(users)
