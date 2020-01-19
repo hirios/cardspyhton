@@ -18,20 +18,20 @@ username2, number2"
 **2 - Criando um vcard a partir de um .txt ou outro .csv**
 ```
 users = open_file()
-print(create_vcf(users))
+print(create_vcard(users))
 ```
 
 **3 - Para retornar um csv no padrão google/android a partir de um Vcard.**
 ```
 users = open_file()
-print(csv_to_vcf(users))
+print(csv_to_vcard(users))
 ```
  Obs: A função open_file() pode ter como parâmetro o nome do arquivo. Caso seja default, será feita a leitura dos arquivos da pasta e será solicitado que escolha o número respectivo do arquivo
  
 **4 - Tranformando vcf em csv.**
 ```
 users = open_file()
-print(vcf_to_csv(users))
+print(vcard_to_csv(users))
 ```
 
 **5 - Para retornar todos contatos de um csv**
@@ -43,7 +43,7 @@ print(get_contacts_csv(users))
 **6 - Para retornar todos os contatos de um vcard**
 ```
 users = open_file()
-print(get_contacts_vcf(users))
+print(get_contacts_vcard(users))
 ```
 
 # Exemplos de uso:
@@ -69,12 +69,12 @@ print(create_csv(users))
  [1] exemplo.csv
  [2] exmplo.txt
     
-print(create_vcf(users))
+print(create_vcard(users))
 ```
 
 **Retornando vcard a partir de um csv**
 ```
 users = open_file("teste.vcf")
-print(csv_to_vcf(users))
+print(csv_to_vcard(users))
 ```
 
