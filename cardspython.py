@@ -58,15 +58,23 @@ class Pyvcard():
 
     def shape_vcard(self, username, number):
         # Encorpora dados num modelo vcard
+
         username_split = username.split()[::-1]
+        username_split = list(filter(None, username_split))
+        username_split = [x for x in username_split if x != []]
+        
+        
         if len(username_split) == 1:
             username_join = ";" + username_split[0] + ";;;"
 
         elif len(username_split) > 1 < 5:
             username_join = ";".join(username_split) + ";" * (4 - (len(username_split) -1))
 
+        elif len(username_split) == 0:
+            username_join = ";" + " " + ";;;"
+
         elif len(username_split) <= 5:
-            print('Excesso de termos no sobrenome')
+            username_join = ";" + "ERRRRRRRRROOOOOOO" + ";;;"
 
 
         return f"""BEGIN:VCARD
@@ -96,8 +104,10 @@ END:VCARD
         number = self.number
         string = ''
         for c in range(0, len(username)):
-            string += str(self.shape_vcard(username[c], number[c]))
-
+            try:
+                string += str(self.shape_vcard(username[c], number[c]))
+            except:
+                pass
         return string
 
 
@@ -152,20 +162,19 @@ class Pycsv():
         return csv_finale
 
 
-
-def create_vcard(users):
-    # Cria um Vcard a partir de um .txt, .csv ou string se estiverem assim -> "name-exemplo, 40028922"
-    start = Pyvcard(users)
-    start.read_string_contacts()
-    string = start.vcard_finale()
-    return string
-
-
 def get_contacts_vcard(users):
     # Pega os contatos no vcard e retorna no padrão -> "name-exemplo, 40028922"
     start = Pyvcard(users)
     start.read_vcard()
     string = start.get_contacts_vcard()
+    return string
+
+
+def get_contacts_csv(users):
+    # Pega os contatos de um csv da google e retorna no padrão -> "name-exemplo, 40028922"
+    start = Pycsv(users)
+    start.check_csv()
+    string = start.get_contacts_csv()
     return string
 
 
@@ -178,11 +187,11 @@ def create_csv(users):
     return string
 
 
-def get_contacts_csv(users):
-    # Pega os contatos de um csv da google e retorna no padrão -> "name-exemplo, 40028922"
-    start = Pycsv(users)
-    start.check_csv()
-    string = start.get_contacts_csv()
+def create_vcard(users):
+    # Cria um Vcard a partir de um .txt, .csv ou string se estiverem assim -> "name-exemplo, 40028922"
+    start = Pyvcard(users)
+    start.read_string_contacts()
+    string = start.vcard_finale()
     return string
 
 
@@ -197,5 +206,5 @@ def vcard_to_csv(users):
     vcard = get_contacts_vcard(users)
     return create_csv(vcard)
 
-#users = open_file()
-#print(get_contacts_vcard(users))
+
+
